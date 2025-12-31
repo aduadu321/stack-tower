@@ -31,7 +31,6 @@ body {
     height: 100%;
 }
 
-/* Screens */
 .screen {
     position: absolute;
     top: 0;
@@ -51,7 +50,17 @@ body {
     display: none !important;
 }
 
-/* Start Screen */
+/* Coins Header */
+.coins-header {
+    position: absolute;
+    top: 30px;
+    right: 20px;
+    color: #ffd700;
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
 h1 {
     font-size: clamp(2rem, 10vw, 3.5rem);
     font-weight: 900;
@@ -66,17 +75,8 @@ h1 {
 }
 
 @keyframes titleGlow {
-    from {
-        text-shadow:
-            0 0 20px rgba(255, 107, 107, 0.8),
-            0 0 40px rgba(255, 107, 107, 0.4);
-    }
-    to {
-        text-shadow:
-            0 0 30px rgba(255, 142, 83, 0.9),
-            0 0 60px rgba(255, 142, 83, 0.5),
-            0 0 80px rgba(255, 142, 83, 0.3);
-    }
+    from { text-shadow: 0 0 20px rgba(255, 107, 107, 0.8), 0 0 40px rgba(255, 107, 107, 0.4); }
+    to { text-shadow: 0 0 30px rgba(255, 142, 83, 0.9), 0 0 60px rgba(255, 142, 83, 0.5), 0 0 80px rgba(255, 142, 83, 0.3); }
 }
 
 .subtitle {
@@ -92,11 +92,10 @@ h1 {
     color: #ffd93d;
     font-size: 1.3rem;
     font-weight: 600;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     text-shadow: 0 0 15px rgba(255, 217, 61, 0.5);
 }
 
-/* Buttons */
 .btn {
     background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 100%);
     border: none;
@@ -108,28 +107,11 @@ h1 {
     cursor: pointer;
     margin: 12px;
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow:
-        0 8px 30px rgba(255, 107, 107, 0.5),
-        inset 0 2px 0 rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 30px rgba(255, 107, 107, 0.5), inset 0 2px 0 rgba(255, 255, 255, 0.2);
     text-transform: uppercase;
     letter-spacing: 2px;
     position: relative;
     overflow: hidden;
-}
-
-.btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-    transition: left 0.5s;
-}
-
-.btn:hover::before {
-    left: 100%;
 }
 
 .btn:active {
@@ -139,11 +121,15 @@ h1 {
 
 .btn-secondary {
     background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
-    box-shadow:
-        0 8px 30px rgba(78, 205, 196, 0.5),
-        inset 0 2px 0 rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 30px rgba(78, 205, 196, 0.5), inset 0 2px 0 rgba(255, 255, 255, 0.2);
     font-size: 1rem;
     padding: 16px 45px;
+}
+
+.btn-shop {
+    background: linear-gradient(135deg, #ffd700 0%, #ffb347 100%);
+    box-shadow: 0 8px 30px rgba(255, 215, 0, 0.5);
+    color: #333;
 }
 
 /* Game UI */
@@ -164,9 +150,7 @@ h1 {
     font-size: clamp(3rem, 15vw, 5rem);
     font-weight: 900;
     color: white;
-    text-shadow:
-        0 4px 15px rgba(0, 0, 0, 0.5),
-        0 0 30px rgba(255, 255, 255, 0.2);
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5), 0 0 30px rgba(255, 255, 255, 0.2);
     letter-spacing: 4px;
 }
 
@@ -178,30 +162,17 @@ h1 {
     font-size: clamp(1.5rem, 8vw, 2.5rem);
     font-weight: 900;
     color: #ffd700;
-    text-shadow:
-        0 0 20px rgba(255, 215, 0, 1),
-        0 0 40px rgba(255, 215, 0, 0.8),
-        0 0 60px rgba(255, 215, 0, 0.6);
+    text-shadow: 0 0 20px rgba(255, 215, 0, 1), 0 0 40px rgba(255, 215, 0, 0.8), 0 0 60px rgba(255, 215, 0, 0.6);
     animation: perfectPop 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
     letter-spacing: 4px;
 }
 
 @keyframes perfectPop {
-    0% {
-        transform: translate(-50%, -50%) scale(0.3);
-        opacity: 0;
-    }
-    50% {
-        transform: translate(-50%, -50%) scale(1.3);
-        opacity: 1;
-    }
-    100% {
-        transform: translate(-50%, -50%) scale(1);
-        opacity: 0;
-    }
+    0% { transform: translate(-50%, -50%) scale(0.3); opacity: 0; }
+    50% { transform: translate(-50%, -50%) scale(1.3); opacity: 1; }
+    100% { transform: translate(-50%, -50%) scale(1); opacity: 0; }
 }
 
-/* Game Over Screen */
 h2 {
     font-size: clamp(2rem, 8vw, 3rem);
     font-weight: 900;
@@ -215,46 +186,223 @@ h2 {
     font-size: 2.5rem;
     font-weight: 700;
     color: white;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
 }
 
-/* Safe area for notched phones */
-@supports (padding: env(safe-area-inset-top)) {
-    #score {
-        top: calc(50px + env(safe-area-inset-top));
-    }
+.session-coins {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ffd700;
+    margin-bottom: 15px;
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
 }
 
-/* Responsive */
+/* Shop Screen */
+#shop-screen {
+    overflow-y: auto;
+    padding: 20px;
+    justify-content: flex-start;
+    padding-top: 60px;
+}
+
+.shop-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 20px;
+    margin-bottom: 10px;
+}
+
+.shop-header h2 {
+    margin: 0;
+}
+
+.btn-close {
+    background: #ff4757;
+    border: none;
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.shop-coins {
+    font-size: 1.5rem;
+    color: #ffd700;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.shop-container {
+    width: 100%;
+    max-width: 500px;
+    padding: 0 15px;
+}
+
+.shop-container h3 {
+    color: #fff;
+    font-size: 1.3rem;
+    margin: 20px 0 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.shop-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.shop-item {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 2px solid transparent;
+}
+
+.shop-item:active {
+    transform: scale(0.95);
+}
+
+.shop-item.equipped {
+    border-color: #ffd700;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+}
+
+.skin-preview {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    margin: 0 auto 10px;
+}
+
+.shop-item p {
+    color: #fff;
+    margin: 5px 0;
+    font-size: 0.9rem;
+}
+
+.shop-item .price {
+    color: #ffd700;
+    font-weight: 700;
+}
+
+.shop-item.powerup {
+    background: rgba(100, 100, 255, 0.2);
+}
+
+.powerup-name {
+    font-weight: 700;
+    font-size: 1rem !important;
+}
+
+.powerup-desc {
+    color: #aaa !important;
+    font-size: 0.8rem !important;
+}
+
+.owned {
+    color: #4ecdc4 !important;
+}
+
+/* Notifications */
+.notification {
+    position: fixed;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.9);
+    color: #fff;
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-weight: 600;
+    z-index: 1000;
+    animation: notifIn 0.3s ease, notifOut 0.3s ease 1.7s forwards;
+}
+
+@keyframes notifIn {
+    from { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+    to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+@keyframes notifOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+/* Daily Reward Popup */
+.daily-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    z-index: 1000;
+    border: 3px solid #ffd700;
+    box-shadow: 0 0 50px rgba(255, 215, 0, 0.3);
+    animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popIn {
+    from { transform: translate(-50%, -50%) scale(0.5); opacity: 0; }
+    to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
+.daily-popup h2 {
+    color: #ffd700;
+    margin-bottom: 15px;
+}
+
+.daily-popup .streak {
+    color: #4ecdc4;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.daily-popup .reward {
+    color: #ffd700;
+    font-size: 2rem;
+    font-weight: 900;
+    margin-bottom: 20px;
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+.daily-popup button {
+    background: linear-gradient(135deg, #ffd700, #ffb347);
+    border: none;
+    color: #333;
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+@supports (padding: env(safe-area-inset-top)) {
+    #score { top: calc(50px + env(safe-area-inset-top)); }
+}
+
 @media (max-height: 600px) {
-    h1 {
-        font-size: 2rem;
-        margin-bottom: 5px;
-    }
-    .subtitle {
-        margin-bottom: 20px;
-    }
-    .high-score {
-        margin-bottom: 25px;
-        font-size: 1.1rem;
-    }
-    #score {
-        font-size: 3rem;
-        top: 25px;
-    }
-    .btn {
-        padding: 15px 45px;
-        font-size: 1rem;
-    }
-    .final-score {
-        font-size: 2rem;
-    }
+    h1 { font-size: 2rem; margin-bottom: 5px; }
+    .subtitle { margin-bottom: 20px; }
+    .high-score { margin-bottom: 20px; font-size: 1.1rem; }
+    #score { font-size: 3rem; top: 25px; }
+    .btn { padding: 15px 45px; font-size: 1rem; }
+    .final-score { font-size: 2rem; }
 }
 
 @media (max-width: 350px) {
-    .btn {
-        padding: 15px 35px;
-        font-size: 0.9rem;
-    }
+    .btn { padding: 15px 35px; font-size: 0.9rem; }
 }

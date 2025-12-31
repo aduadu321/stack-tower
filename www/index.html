@@ -14,10 +14,12 @@
 
         <!-- Start Screen -->
         <div id="start-screen" class="screen">
+            <div class="coins-header"><span id="coins-display">0</span> coins</div>
             <h1>STACK TOWER</h1>
             <p class="subtitle">Tap to drop blocks</p>
             <div class="high-score">Best: <span id="best-score">0</span></div>
             <button id="start-btn" class="btn">TAP TO PLAY</button>
+            <button id="shop-btn" class="btn btn-shop">SHOP</button>
         </div>
 
         <!-- Game UI Overlay -->
@@ -30,9 +32,20 @@
         <div id="gameover-screen" class="screen hidden">
             <h2>GAME OVER</h2>
             <div class="final-score">Score: <span id="final-score">0</span></div>
+            <div class="session-coins" id="session-coins">+0 coins</div>
             <div class="high-score">Best: <span id="gameover-best">0</span></div>
             <button id="retry-btn" class="btn">PLAY AGAIN</button>
             <button id="revive-btn" class="btn btn-secondary">WATCH AD TO CONTINUE</button>
+        </div>
+
+        <!-- Shop Screen -->
+        <div id="shop-screen" class="screen hidden">
+            <div class="shop-header">
+                <h2>SHOP</h2>
+                <button id="close-shop" class="btn-close">X</button>
+            </div>
+            <div class="shop-coins">Coins: <span id="shop-coins-display">0</span></div>
+            <div id="shop-items" class="shop-container"></div>
         </div>
     </div>
 
