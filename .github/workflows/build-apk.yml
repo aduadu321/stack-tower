@@ -45,8 +45,12 @@ jobs:
         sed -i 's/compileSdkVersion = .*/compileSdkVersion = 35/' android/variables.gradle
         sed -i 's/targetSdkVersion = .*/targetSdkVersion = 35/' android/variables.gradle
         # Update Gradle plugin version
-        sed -i "s/id(\"com.android.application\") version .*/id(\"com.android.application\") version \"8.7.0\" apply false/" android/build.gradle
-        sed -i "s/id 'com.android.application' version .*/id 'com.android.application' version '8.7.0' apply false/" android/build.gradle
+        # Update AGP to 8.6.0 and Kotlin plugin to 1.9.0
+        sed -i "s/id(\"com.android.application\") version .*/id(\"com.android.application\") version \"8.6.0\" apply false/" android/build.gradle
+        sed -i "s/id 'com.android.application' version .*/id 'com.android.application' version '8.6.0' apply false/" android/build.gradle
+        # Disable jlink transform that causes issues with Java 21
+        echo "android.suppressUnsupportedCompileSdk=35" >> android/gradle.properties
+        echo "org.gradle.jvmargs=-Xmx4g" >> android/gradle.properties
         # Also try the ext block format
         sed -i 's/compileSdk = .*/compileSdk = 35/' android/app/build.gradle
         sed -i 's/targetSdk = .*/targetSdk = 35/' android/app/build.gradle
