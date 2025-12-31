@@ -38,6 +38,7 @@ jobs:
     - name: Update Android SDK version
       run: |
         # Update variables.gradle for Capacitor
+        sed -i 's/minSdkVersion = .*/minSdkVersion = 23/' android/variables.gradle
         sed -i 's/compileSdkVersion = .*/compileSdkVersion = 35/' android/variables.gradle
         sed -i 's/targetSdkVersion = .*/targetSdkVersion = 35/' android/variables.gradle
         # Update Gradle plugin version
