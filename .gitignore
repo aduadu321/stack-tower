@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+android/app/build/
+android/.gradle/
+android/build/
+android/capacitor-cordova-android-plugins/build/
+android/capacitor-android/build/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local
+*.log
+*.local
+
+# Generated files (but keep icons)
+android/app/src/main/assets/public/
+android/app/src/main/assets/capacitor.config.json
+
+# Keep keystore tracked (usually you'd exclude this, but for this project we need it)
+# !stacktower.keystore

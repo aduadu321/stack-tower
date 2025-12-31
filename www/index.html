@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>Stack Tower</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="game-container">
+        <canvas id="gameCanvas"></canvas>
+
+        <!-- Start Screen -->
+        <div id="start-screen" class="screen">
+            <h1>STACK TOWER</h1>
+            <p class="subtitle">Tap to drop blocks</p>
+            <div class="high-score">Best: <span id="best-score">0</span></div>
+            <button id="start-btn" class="btn">TAP TO PLAY</button>
+        </div>
+
+        <!-- Game UI Overlay -->
+        <div id="game-ui" class="hidden">
+            <div id="score">0</div>
+            <div id="perfect-text" class="hidden">PERFECT!</div>
+        </div>
+
+        <!-- Game Over Screen -->
+        <div id="gameover-screen" class="screen hidden">
+            <h2>GAME OVER</h2>
+            <div class="final-score">Score: <span id="final-score">0</span></div>
+            <div class="high-score">Best: <span id="gameover-best">0</span></div>
+            <button id="retry-btn" class="btn">PLAY AGAIN</button>
+            <button id="revive-btn" class="btn btn-secondary">WATCH AD TO CONTINUE</button>
+        </div>
+    </div>
+
+    <script src="js/game.js"></script>
+    <script src="js/ads.js"></script>
+</body>
+</html>
