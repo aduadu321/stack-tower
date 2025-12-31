@@ -37,10 +37,18 @@ jobs:
 
     - name: Update Android SDK version
       run: |
+        # Update variables.gradle for Capacitor
+        sed -i 's/compileSdkVersion = .*/compileSdkVersion = 35/' android/variables.gradle
+        sed -i 's/targetSdkVersion = .*/targetSdkVersion = 35/' android/variables.gradle
+        # Update Gradle plugin version
+        sed -i "s/id(\"com.android.application\") version .*/id(\"com.android.application\") version \"8.5.0\" apply false/" android/build.gradle
+        sed -i "s/id 'com.android.application' version .*/id 'com.android.application' version '8.5.0' apply false/" android/build.gradle
+        # Also try the ext block format
         sed -i 's/compileSdk = .*/compileSdk = 35/' android/app/build.gradle
         sed -i 's/targetSdk = .*/targetSdk = 35/' android/app/build.gradle
-        sed -i "s/id 'com.android.application' version '8.2.0'/id 'com.android.application' version '8.5.0'/" android/build.gradle
-        sed -i "s/id 'com.android.library' version '8.2.0'/id 'com.android.library' version '8.5.0'/" android/build.gradle
+        # Debug - show the files
+        echo "=== variables.gradle ===" && cat android/variables.gradle || true
+        echo "=== build.gradle ===" && head -30 android/build.gradle || true
 
     - name: Build Release APK
       working-directory: android
