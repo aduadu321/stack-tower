@@ -9,9 +9,10 @@ class AdManager {
         this.gamesUntilAd = 3;
 
         // REAL IDs for Stack Tower
+        // App ID: ca-app-pub-2765135233673065~5710715920
         this.config = {
             interstitialId: 'ca-app-pub-2765135233673065/7086203316',
-            rewardedId: 'ca-app-pub-2765135233673065/6065939144',
+            rewardedId: 'ca-app-pub-2765135233673065/4837468019',
             bannerId: 'ca-app-pub-3940256099942544/6300978111' // Test banner
         };
 
