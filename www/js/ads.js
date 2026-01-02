@@ -8,11 +8,11 @@ class AdManager {
         this.gamesPlayed = 0;
         this.gamesUntilAd = 3;
 
-        // Test IDs - Replace with your real IDs before publishing
+        // REAL IDs for Stack Tower
         this.config = {
-            interstitialId: 'ca-app-pub-3940256099942544/1033173712',
-            rewardedId: 'ca-app-pub-3940256099942544/5224354917',
-            bannerId: 'ca-app-pub-3940256099942544/6300978111'
+            interstitialId: 'ca-app-pub-2765135233673065/7086203316',
+            rewardedId: 'ca-app-pub-2765135233673065/6065939144',
+            bannerId: 'ca-app-pub-3940256099942544/6300978111' // Test banner
         };
 
         this.init();
@@ -33,7 +33,7 @@ class AdManager {
 
             await AdMob.initialize({
                 requestTrackingAuthorization: true,
-                initializeForTesting: true
+                initializeForTesting: false
             });
 
             this.AdMob = AdMob;
